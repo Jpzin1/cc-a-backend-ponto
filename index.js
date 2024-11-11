@@ -1,6 +1,23 @@
 const express = require('express');
 const app = express();
 
+const sequelize = require('./config/db');
+
+sequelize.authenticate()
+    .then(() => {
+        console.log("Conectei no banco de dados");
+    })
+    .catch(error => {
+        console.log(`Deu erro ao conectar no banco de dados ${error}`);
+    });
+
+
+
+    
+
+
+
+
 // app.METODO('rota/caminho', (req. res) =>{})
 app.get('/users', (req, res) => {
     res.send("Nessa rota vou retornar os usuários");
@@ -17,7 +34,6 @@ app.get('/user/:id', (req, res) => {
 app.post('/user/:id1-:id2', (req, res) => {
     res.send(req.params);
 });
-
 
 const PORT = 3000;
 
