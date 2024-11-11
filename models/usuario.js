@@ -22,8 +22,8 @@ const Usuario = sequelize.define('Usuario', {
     permissao: {
         type: DataTypes.ENUM('USER', 'ADM'),
         allowNull: false
-    }
-
+    },
+    
 },
 {
     timestamps: true
